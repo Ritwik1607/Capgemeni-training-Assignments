@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+	
+	<context:annotation-config/>
+	<bean id="hello" class="com.cg.bean.HelloWorld" scope="singleton">
+		<property name="name" value="Swati"/>
+		
+		<property name="language">
+			<!-- <list>
+				<value>Hindi</value>
+				<value>English</value>
+				<value>Sanskrit</value>
+				<value>Hindi</value>
+			</list> -->
+			<set>
+				<value>Hindi</value>
+				<value>English</value>
+				<value>Sanskrit</value>
+				<value>Hindi</value>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="e" class="com.cg.bean.Employee">
+		<property name="empid" value="1001"/>
+		<property name="name" value="Ritwik"/>
+		 <property name="address" ref="add1"/>
+
+	</bean>
+
+	<bean id="add" class="com.cg.bean.Address">
+		<property name="city" value="Delhi"/>
+		<property name="country" value="India"/>
+		<property name="zip" value="201306"/>
+	</bean>
+	<bean id="add1" class="com.cg.bean.Address">
+		<property name="city" value="Gurgaon"/>
+		<property name="country" value="India"/>
+		<property name="zip" value="122001"/>
+	</bean>
+</beans>
